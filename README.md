@@ -8,19 +8,20 @@ https://qiita.com/sayama0402/items/99bbf6d0977c5c6414cb
 ## githubと接続
 
 * github側にこっちのpubkeyを登録してあげる
-* `$ssh -T git@github.com`で確認 
-* `git@github.com:akiyoshi-sasaki/kennan.git`
+* `$ ssh -T git@github.com`で確認 
+* 作業用ディレクトリ作成、`~/develop`に移動してから`$ git clone git@github.com:akiyoshi-sasaki/kennan.git`
 
 
 ## vagrant環境用意
 
-vagrantとvirtual box入れる
+vagrantとvirtualboxは公式サイトから入れる
 
 ```
 $ vagrant init rails-dev-box
 ```
 
 ```
+$ cd ~/Vagrant
 $ git clone https://github.com/rails/rails-dev-box.git
 $ cd rails-dev-box
 $ vagrant up
@@ -28,10 +29,10 @@ $ vagrant up
 
 #### ファイルの同期
 
-ホスト側のVagrant.flieを更新
+ホスト側のVagrant.flieを更新、一行追加するだけ
 
 ```
-[~/develop/kennan] (setup *)$ vi Vagrantfile
+[~/Vagrant/rails-dev-box] (master *)$ vi Vagrantfile
 
 Vagrant.configure('2') do |config|
 
@@ -48,6 +49,9 @@ Vagrant.configure('2') do |config|
 ```
 [~/develop/kennan]
 ```
+
+Vagrant.flieを更新したら常にreload必須
+
 
 
 ***
